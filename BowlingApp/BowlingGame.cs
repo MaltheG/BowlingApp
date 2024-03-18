@@ -27,6 +27,8 @@ public class BowlingGame
         {
             numberOfBonusRolls--;
 
+            pins = BonusRolls.FirstOrDefault() == 10 ? pins : Math.Min(pins, 10 - BonusRolls.Sum());
+
             BonusRolls.Add(pins);
 
             IsComplete = numberOfBonusRolls == 0;
